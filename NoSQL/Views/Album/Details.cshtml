@@ -1,0 +1,48 @@
+﻿@model NoSQL.Models.Album
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Album "@Model.Name" (@Model.Owner)</h2>
+
+<div>
+    <h4>@Model.Description</h4>
+    <h3>@Model.Name</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TitlePhoto)
+        </dt>
+        <dd>
+        @using (Html.BeginForm("Preview","Album",FormMethod.Post, new {id="enterForm" }))
+        {
+            <img src="@Model.TitlePhoto.ServerPath"/>
+        }
+        </dd>
+
+    </dl>
+</div>

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<NoSQL.Models.Photo>
+
+@{
+    ViewBag.Title = "_Preview";
+}
+
+<h2>Album <span style="color:royalblue;font-style:italic">@ViewBag.AlbumTitle</span></h2>
+
+<div class="row">
+@foreach (var photo in Model)
+{
+    <div class="col-md-3">
+        <input type="submit" id="@photo.PhotoName" value="Usuń" class="btn btn-xs btn-warning cancel" style="text-align:center;float:right" />
+        <img src="@photo.ServerPath" class="img-responsive img-thumbnail col-md-3" style="width:100%;height:180px" />
+        <label style="text-align:center;width:100%">@Html.DisplayNameFor(phot=>phot.PhotoName): @photo.PhotoName</label>
+        <label style="text-align:center;width:100%;font-weight:100">@photo.PhotoDescription</label>
+    </div>
+}
+</div>
